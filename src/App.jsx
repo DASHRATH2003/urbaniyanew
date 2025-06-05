@@ -10,11 +10,13 @@ import UrbaniaLuxuryTenPlusOne from './Components/UrbaniaLuxuryTenPlusOne';
 import UrbaniaLuxuryTwelvePlusOne from './Components/UrbaniaLuxuryTwelvePlusOne';
 import Blog from './Components/Blog';
 import Contact from './Components/Contact';
+import ScrollToTop from './Components/ScrollToTop';
 import './styles/App.css';
 
 const App = () => {
   return (
     <Router>
+      <ScrollToTop />
       <div className="app">
         <Navbar />
         <main className="main-content">

@@ -72,7 +72,7 @@ const rentalServices = [
 const reviews = [
   {
     id: 1,
-    name: "Ilmisro",
+    name: "kishor raj",
     avatar: "I",
     rating: 5,
     date: "4 days ago",
@@ -82,7 +82,7 @@ const reviews = [
   },
   {
     id: 2,
-    name: "RoHAN",
+    name: "ROHAN",
     avatar: "R",
     rating: 5,
     date: "4 days ago",
@@ -92,7 +92,7 @@ const reviews = [
   },
   {
     id: 3,
-    name: "milana kraj",
+    name: "milana raj",
     avatar: "m",
     rating: 5,
     date: "2 weeks ago",
@@ -152,7 +152,7 @@ const reviews = [
   },
   {
     id: 9,
-    name: "Lisa Chen",
+    name: "Mukesh jain",
     avatar: "L",
     rating: 5,
     date: "6 days ago",
@@ -180,6 +180,7 @@ const Home = () => {
     rentalServices.map(() => 0)
   );
 
+  const [scrollPosition, setScrollPosition] = useState(0);
   const reviewsContainerRef = useRef(null);
 
   const [formData, setFormData] = useState({
@@ -210,12 +211,38 @@ const Home = () => {
       );
     }, 4000);
 
+    // Auto-scroll reviews
+    const scrollInterval = setInterval(() => {
+      if (reviewsContainerRef.current) {
+        const container = reviewsContainerRef.current;
+        const maxScroll = container.scrollWidth - container.clientWidth;
+        
+        if (scrollPosition >= maxScroll) {
+          // Reset to start when reaching the end
+          setScrollPosition(0);
+          container.scrollTo({
+            left: 0,
+            behavior: 'smooth'
+          });
+        } else {
+          // Scroll by 300px each time
+          const newPosition = scrollPosition + 300;
+          setScrollPosition(newPosition);
+          container.scrollTo({
+            left: newPosition,
+            behavior: 'smooth'
+          });
+        }
+      }
+    }, 3000); // Scroll every 3 seconds
+
     return () => {
       clearInterval(heroInterval);
       clearInterval(rentalInterval);
+      clearInterval(scrollInterval);
       cleanup();
     };
-  }, []);
+  }, [scrollPosition]);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -380,7 +407,7 @@ const Home = () => {
           <div className="package-card reveal hover-scale">
             <div className="package-header">
               <h3>8 Hours Package</h3>
-              <div className="package-price">¥7,000</div>
+              <div className="package-price">₹7,000</div>
               <div className="package-duration">8 hours / 80 km</div>
             </div>
             <ul className="package-features">
@@ -400,7 +427,7 @@ const Home = () => {
             <div className="popular-badge">Most Popular</div>
             <div className="package-header">
               <h3>12 Hours Package</h3>
-              <div className="package-price">¥9,999</div>
+              <div className="package-price">₹9,999</div>
               <div className="package-duration">12 hours / 100 km</div>
             </div>
             <ul className="package-features">
@@ -419,7 +446,7 @@ const Home = () => {
           <div className="package-card reveal hover-scale">
             <div className="package-header">
               <h3>Outstation Package</h3>
-              <div className="package-price">¥45/km</div>
+              <div className="package-price">₹45/km</div>
               <div className="package-duration">Minimum 300 km per day</div>
             </div>
             <ul className="package-features">
@@ -452,9 +479,26 @@ const Home = () => {
           <span>5.0 rating based on verified reviews</span>
         </div>
 
-        <div className="reviews-container" ref={reviewsContainerRef}>
+        <div 
+          className="reviews-container" 
+          ref={reviewsContainerRef}
+          style={{
+            display: 'flex',
+            overflowX: 'hidden',
+            scrollBehavior: 'smooth',
+            gap: '20px',
+            padding: '20px 0'
+          }}
+        >
           {reviews.map((review) => (
-            <div key={review.id} className="review-card reveal hover-scale">
+            <div 
+              key={review.id} 
+              className="review-card reveal hover-scale"
+              style={{
+                minWidth: '300px', // Fixed width for each card
+                flex: '0 0 auto'    // Prevent cards from shrinking
+              }}
+            >
               <div className="review-header">
                 <div 
                   className="reviewer-avatar" 
@@ -472,16 +516,6 @@ const Home = () => {
               </div>
               <div className="review-stars">★★★★★</div>
               <p className="review-text">{review.text}</p>
-              <div className="review-actions">
-                <button className="action-button">
-                  <i className="far fa-thumbs-up"></i>
-                  Like
-                </button>
-                <button className="action-button">
-                  <i className="far fa-share-square"></i>
-                  Share
-                </button>
-              </div>
             </div>
           ))}
         </div>

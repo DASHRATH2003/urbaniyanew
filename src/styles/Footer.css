@@ -21,7 +21,7 @@
 }
 
 .footer-logo {
-  margin-bottom: 20px;
+  margin-bottom: 0;
   margin-top: -50px;
   display: inline-block;
   transition: transform 0.3s ease;
@@ -35,13 +35,16 @@
   height: 140px;
   width: auto;
   object-fit: contain;
+  margin-bottom: -15px;
 }
 
 .company-description {
-  color: #b0b7c3;
+  color: #ffffff;
   line-height: 1.6;
   margin-bottom: 25px;
   font-size: 0.95rem;
+  margin-top: -20px;
+  padding-left: 5px;
 }
 
 .social-links {
@@ -119,7 +122,7 @@
 }
 
 .footer-section ul li a {
-  color: #ffffff;
+  color: #fff;
   text-decoration: none;
   transition: all 0.3s ease;
   display: flex;
@@ -169,11 +172,11 @@
 }
 
 .contact-info .phone-numbers {
-  margin-top: 5px;
+  margin-top: -16px;
 }
 
 .contact-info .email-addresses {
-  margin-top: 5px;
+  margin-top: -29px;
 }
 
 .footer-bottom {
@@ -199,7 +202,7 @@
 }
 
 .footer-links a {
-  color: #b0b7c3;
+  color: #fff;
   text-decoration: none;
   transition: color 0.3s ease;
 }

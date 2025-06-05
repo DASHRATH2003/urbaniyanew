@@ -89,8 +89,8 @@ const UrbaniaLuxuryTwelvePlusOne = () => {
                 <Link to="/contact" className="book-now-btn">
                   Book Now
                 </Link>
-                <a href="tel:+916361507060" className="call-btn">
-                  Call: 6361507060
+                <a href="tel:+918951666166" className="call-btn">
+                   +91 8951666166
                 </a>
               </div>
             </div>

@@ -87,7 +87,7 @@ const Footer = () => {
             <div className="email-addresses">
               <p>
                 <i className="fas fa-envelope"></i>
-                bookings@urbaniarentalsbangalore.com
+                urbaniarentalsbangalore.in
               </p>
             </div>
           </div>

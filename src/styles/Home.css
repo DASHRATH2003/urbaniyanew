@@ -515,9 +515,9 @@
 
 /* Customer Reviews Section */
 .reviews-section {
-  padding: 4rem 2rem;
-  text-align: center;
-  background: #f9f9f9;
+  padding: 60px 20px;
+  background: #f8f9fa;
+  overflow: hidden;
 }
 
 .reviews-section h2 {
@@ -545,38 +545,51 @@
 }
 
 .reviews-container {
-  display: flex;
-  gap: 2rem;
-  overflow-x: auto;
-  padding: 1rem 0.5rem;
-  scroll-behavior: smooth;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
-  scrollbar-color: #1a237e #f0f0f0;
-}
-
-.reviews-container::-webkit-scrollbar {
-  height: 8px;
-}
-
-.reviews-container::-webkit-scrollbar-track {
-  background: #f0f0f0;
-  border-radius: 4px;
-}
-
-.reviews-container::-webkit-scrollbar-thumb {
-  background: #1a237e;
-  border-radius: 4px;
+  display: flex;
+  gap: 15px;
+  padding: 20px 0;
 }
 
 .review-card {
-  flex: 0 0 350px;
   background: white;
-  padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: left;
-  position: relative;
+  padding: 25px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  margin: 10px;
+  min-width: 280px;
+  max-width: 280px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Custom scrollbar for review text */
+.review-text::-webkit-scrollbar {
+  width: 4px;
+}
+
+.review-text::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 2px;
+}
+
+.review-text::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 2px;
+}
+
+.review-text::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .review-header {
@@ -631,6 +644,9 @@
 .review-text {
   color: #444;
   line-height: 1.6;
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 10px;
 }
 
 .review-actions {
@@ -686,7 +702,9 @@
   }
 
   .review-card {
-    flex: 0 0 300px;
+    min-width: 260px;
+    max-width: 260px;
+    height: 230px;
   }
 }
 
