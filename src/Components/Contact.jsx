@@ -50,7 +50,7 @@ const Contact = () => {
             <div className="info-item">
               <FontAwesomeIcon icon={faPhone} className="info-icon" />
               <h3>Phone</h3>
-              <p>+91 6361 507 060</p>
+              <p>+91 8951666166</p>
             
             
             </div>
