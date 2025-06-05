@@ -333,7 +333,7 @@ const Home = () => {
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
                 <Link
-                  to={`/urbania${service.id === 1 ? '-10-1' : service.id === 2 ? '-12-1' : '-16-1'}`}
+                  to={`/urbania/${service.id === 1 ? '10-1-luxury' : service.id === 2 ? '12-1-seater' : '16-1-seater'}`}
                   className="view-details-btn hover-scale"
                 >
                   View Details
