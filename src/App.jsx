@@ -1,0 +1,38 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './Components/Navbar';
+import Footer from './Components/Footer';
+import Home from './Components/Home';
+import Urbania from './Components/Urbania';
+import UrbaniaTwelvePlusOne from './Components/UrbaniaTwelvePlusOne';
+import UrbaniaSixteenPlusOne from './Components/UrbaniaSixteenPlusOne';
+import UrbaniaLuxuryTenPlusOne from './Components/UrbaniaLuxuryTenPlusOne';
+import UrbaniaLuxuryTwelvePlusOne from './Components/UrbaniaLuxuryTwelvePlusOne';
+import Blog from './Components/Blog';
+import Contact from './Components/Contact';
+import './styles/App.css';
+
+const App = () => {
+  return (
+    <Router>
+      <div className="app">
+        <Navbar />
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/urbania" element={<Urbania />} />
+            <Route path="/urbania/12-1-seater" element={<UrbaniaTwelvePlusOne />} />
+            <Route path="/urbania/16-1-seater" element={<UrbaniaSixteenPlusOne />} />
+            <Route path="/urbania/10-1-luxury" element={<UrbaniaLuxuryTenPlusOne />} />
+            <Route path="/urbania/12-1-luxury" element={<UrbaniaLuxuryTwelvePlusOne />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
+  );
+};
+
+export default App;

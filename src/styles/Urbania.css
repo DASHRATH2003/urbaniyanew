@@ -1,0 +1,439 @@
+.urbania {
+  padding: 80px 0;
+  background-color: #f8f9fa;
+}
+
+.urbania-header {
+  text-align: center;
+  margin-bottom: 60px;
+  padding: 0 20px;
+}
+
+.urbania-header h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.urbania-header p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.urbania-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.urbania-container h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+}
+
+.vehicle-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.category h2 {
+  color: #1a237e;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e8eaf6;
+}
+
+.vehicle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.vehicle-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.vehicle-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.vehicle-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.vehicle-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.vehicle-card:hover .vehicle-image img {
+  transform: scale(1.05);
+}
+
+.vehicle-info {
+  padding: 20px;
+}
+
+.vehicle-info h3 {
+  color: #333;
+  margin-bottom: 8px;
+  font-size: 1.3rem;
+}
+
+.vehicle-info p {
+  color: #666;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.vehicle-info .price {
+  display: block;
+  color: #1a237e;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+/* Features Section Styles */
+.features-section {
+  margin-bottom: 30px;
+}
+
+.features-section h3 {
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.features-list li {
+  padding-left: 25px;
+  position: relative;
+  color: #666;
+}
+
+.features-list li:before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #007bff;
+}
+
+/* Specifications Section Styles */
+.specifications-section h3 {
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.specifications-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.spec-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.spec-label {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.spec-value {
+  color: #333;
+  font-weight: 500;
+}
+
+/* Booking CTA Styles */
+.booking-cta {
+  text-align: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+              url('/images/cta-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 80px 20px;
+  margin-top: 60px;
+  color: white;
+}
+
+.booking-cta h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.booking-cta p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 15px 40px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 968px) {
+  .vehicle-section {
+    grid-template-columns: 1fr;
+  }
+
+  .features-list {
+    grid-template-columns: 1fr;
+  }
+
+  .specifications-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .urbania {
+    padding: 40px 0;
+  }
+
+  .urbania-header h1 {
+    font-size: 2rem;
+  }
+
+  .urbania-container {
+    padding: 20px;
+  }
+
+  .urbania-container h1 {
+    font-size: 2rem;
+  }
+
+  .vehicle-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vehicle-details h2 {
+    font-size: 1.8rem;
+  }
+
+  .price-section {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .main-image {
+    height: 200px;
+  }
+
+  .image-gallery img {
+    height: 80px;
+  }
+
+  .booking-cta h2 {
+    font-size: 2rem;
+  }
+} 
+
+.transparent-pricing-section {
+  padding: 60px 20px;
+  background-color: #ffffff;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pricing-title {
+  font-size: 2.5rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.pricing-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.pricing-box {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px;
+  margin: 0 20px;
+}
+
+.pricing-column {
+  flex: 1;
+}
+
+.pricing-column:last-child {
+  margin-top: 48px;
+}
+
+.pricing-column h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.pricing-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pricing-column li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.4;
+}
+
+.check {
+  color: #22c55e;
+  font-size: 1.2rem;
+  margin-right: 12px;
+  font-weight: bold;
+}
+
+.cross {
+  color: #ef4444;
+  font-size: 1.2rem;
+  margin-right: 12px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .pricing-box {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 30px;
+  }
+
+  .pricing-title {
+    font-size: 2rem;
+  }
+
+  .pricing-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+  }
+
+  .pricing-column li {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+}
+
+/* Global section heading styles */
+.urbania h1,
+.urbania h2,
+.urbania-header h1,
+.urbania-container h1,
+.category h2,
+.features-section h2,
+.specifications-section h3,
+.booking-cta h2,
+.transparent-pricing-section h2,
+.pricing-title,
+.section-title {
+  color: #1a237e;
+  text-align: center;
+  font-weight: 600;
+}
+
+.urbania h1,
+.urbania-header h1,
+.urbania-container h1,
+.pricing-title,
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.category h2,
+.features-section h2,
+.specifications-section h3,
+.booking-cta h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+/* Update existing heading styles to maintain other properties */
+.urbania-header {
+  text-align: center;
+  margin-bottom: 60px;
+  padding: 0 20px;
+}
+
+.category h2 {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e8eaf6;
+}
+
+.pricing-title {
+  margin-bottom: 15px;
+}
+
+.pricing-subtitle {
+  text-align: center;
+  color: #666;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .urbania h1,
+  .urbania-header h1,
+  .urbania-container h1,
+  .pricing-title,
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .category h2,
+  .features-section h2,
+  .specifications-section h3,
+  .booking-cta h2 {
+    font-size: 1.8rem;
+  }
+}
