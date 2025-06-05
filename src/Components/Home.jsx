@@ -15,7 +15,7 @@ import seatImage4 from "../assets/seet44.webp";
 import heroImage1 from '../assets/leading1.webp';
 import heroImage2 from '../assets/leading2.avif';
 import heroImage3 from '../assets/leading3.jpeg';
-import heroImage4 from '../assets/leading4.webp';
+import heroImage4 from '../assets/force.avif';
 
 // Landing images for additional views
 import landingImage1 from '../assets/landing-1.webp';
