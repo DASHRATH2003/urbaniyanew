@@ -58,7 +58,7 @@ const Contact = () => {
             <div className="info-item">
               <FontAwesomeIcon icon={faEnvelope} className="info-icon" />
               <h3>Email</h3>
-              <p>urbaniarentalsbangalore.in</p>
+              <p>urbaniarentalsbangalore.in/</p>
         
             </div>
 
@@ -202,8 +202,8 @@ const Contact = () => {
           <div className="faq-item">
             <h3>How do I book a vehicle?</h3>
             <p>
-              You can book a vehicle by calling us at <a href="tel:+916361507060">+91 6361 507 060</a>, filling out our
-              contact form, or sending an email to <a href="mailto:bookings@urbaniarentalsbangalore.com">bookings@urbaniarentalsbangalore.com</a> with your requirements.
+              You can book a vehicle by calling us at <a href="tel:+916361507060">+91 8951666166</a>, filling out our
+              contact form, or sending an email to <a href="mailto:bookings@urbaniarentalsbangalore.com">urbaniarentalsbangalore.in</a> with your requirements.
             </p>
           </div>
 

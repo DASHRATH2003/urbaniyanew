@@ -716,7 +716,7 @@ const Home = () => {
               </button>
 
               <p className="terms-text">
-                By submitting this form, you agree to our <a href="/terms">Terms of Service</a> and <a href="/privacy">Privacy Policy</a>
+                By submitting this form, you agree to our <Link to="/">Terms of Service</Link> and <Link to="/">Privacy Policy</Link>
               </p>
             </form>
           </div>
