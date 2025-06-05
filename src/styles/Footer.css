@@ -229,46 +229,56 @@
 
   .footer-container {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 30px;
+    padding: 0 20px;
   }
 
   .footer-section {
     text-align: center;
-    padding: 0 15px;
+    align-items: center;
+  }
+
+  .footer-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
   }
 
   .footer-section h3::after {
     left: 50%;
     transform: translateX(-50%);
+    width: 30px;
   }
 
-  .contact-info {
-    align-items: flex-start;
+  .company-description {
+    text-align: center;
+    margin-top: 0;
+    padding: 0 20px;
   }
 
-  .contact-info .address p,
-  .contact-info .phone-numbers p,
-  .contact-info .email-addresses p {
-    justify-content: flex-start;
+  .social-links {
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .footer-section ul {
+    text-align: center;
+  }
+
+  .footer-section ul li {
+    margin-bottom: 12px;
   }
 
   .footer-section ul li a {
     justify-content: center;
-  }
-
-  .footer-bottom-content {
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
-    padding: 0 15px;
+    font-size: 0.95rem;
   }
 
   .footer-logo {
-    margin-top: -40px;
+    margin: 0 auto 20px;
   }
 
   .footer-logo img {
-    height: 90px;
+    height: 100px;
   }
 }
 
@@ -281,20 +291,24 @@
     gap: 25px;
   }
 
-  .social-links {
-    flex-wrap: wrap;
-    justify-content: center;
+  .footer-section h3 {
+    font-size: 1.1rem;
   }
 
-  .footer-links {
-    gap: 15px;
-  }
-
-  .footer-logo {
-    margin-top: -30px;
+  .company-description {
+    font-size: 0.9rem;
   }
 
   .footer-logo img {
     height: 80px;
+  }
+
+  .social-links {
+    gap: 10px;
+  }
+
+  .social-links a {
+    width: 35px;
+    height: 35px;
   }
 } 

@@ -238,20 +238,32 @@
 }
 
 @media screen and (max-width: 960px) {
+  .navbar {
+    height: 80px;
+  }
+
+  .navbar-logo img {
+    height: 120px;
+  }
+
   .menu-icon {
     display: block;
+    position: relative;
+    z-index: 1000;
   }
 
   .nav-menu {
     display: none;
-    position: absolute;
-    top: 80px;
+    position: fixed;
+    top: 0;
     left: 0;
     width: 100%;
-    background: white;
-    padding: 20px 0;
+    height: 100vh;
+    background: rgba(26, 35, 126, 0.98);
+    padding: 80px 0 20px;
     flex-direction: column;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    z-index: 999;
   }
 
   .nav-menu.active {
@@ -259,7 +271,39 @@
   }
 
   .nav-item {
-    margin: 10px 0;
+    margin: 15px 0;
+  }
+
+  .nav-link {
+    font-size: 1.2rem;
+    color: white;
+  }
+
+  .dropdown-content {
+    position: static;
+    background: transparent;
+    box-shadow: none;
+    padding: 10px 0;
+  }
+
+  .dropdown-section {
+    padding: 5px 15px;
+  }
+
+  .dropdown-item {
+    color: rgba(255, 255, 255, 0.9);
+    padding: 8px 25px;
+    text-align: center;
+  }
+
+  .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .dropdown-section h4 {
+    color: #ffd700;
+    margin-top: 10px;
+    text-align: center;
   }
 
   .social-icons {
@@ -268,29 +312,25 @@
 }
 
 @media screen and (max-width: 768px) {
-  .dropdown-content {
-    position: static;
-    box-shadow: none;
-    padding: 0;
-    background: transparent;
+  .navbar {
+    height: 70px;
   }
 
-  .dropdown-section {
-    padding: 5px 15px;
+  .navbar-logo img {
+    height: 100px;
   }
 
-  .dropdown-item {
-    color: white;
-    padding: 8px 25px;
+  .floating-contact-buttons {
+    right: 15px;
   }
 
-  .dropdown-item:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+  .floating-button {
+    width: 40px;
+    height: 40px;
   }
 
-  .dropdown-section h4 {
-    color: #e8eaf6;
-    margin-top: 10px;
+  .floating-button i {
+    font-size: 18px;
   }
 }
 
@@ -334,19 +374,4 @@
 .floating-button:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-}
-
-@media screen and (max-width: 768px) {
-  .floating-contact-buttons {
-    right: 20px;
-  }
-
-  .floating-button {
-    width: 45px;
-    height: 45px;
-  }
-
-  .floating-button i {
-    font-size: 20px;
-  }
 } 
