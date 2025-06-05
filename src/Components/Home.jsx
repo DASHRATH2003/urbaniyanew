@@ -411,11 +411,11 @@ const Home = () => {
               <div className="package-duration">8 hours / 80 km</div>
             </div>
             <ul className="package-features">
-              <li>✓ Force Urbania 10+1 Seater</li>
-              <li>✓ Professional driver</li>
-              <li>✓ Individual AC vents</li>
-              <li>✓ USB charging ports</li>
-              <li>✓ Local Bangalore travel</li>
+              <li> Force Urbania 10+1 Seater</li>
+              <li> Professional driver</li>
+              <li> Individual AC vents</li>
+              <li> USB charging ports</li>
+              <li> Local Bangalore travel</li>
             </ul>
             <Link to="/contact" className="package-button">
               Book Now
@@ -431,11 +431,11 @@ const Home = () => {
               <div className="package-duration">12 hours / 100 km</div>
             </div>
             <ul className="package-features">
-              <li>✓ Force Urbania 12+1 Seater</li>
-              <li>✓ Professional driver</li>
-              <li>✓ Individual AC vents</li>
-              <li>✓ USB charging ports</li>
-              <li>✓ Local Bangalore travel</li>
+              <li> Force Urbania 12+1 Seater</li>
+              <li> Professional driver</li>
+              <li> Individual AC vents</li>
+              <li> USB charging ports</li>
+              <li> Local Bangalore travel</li>
             </ul>
             <Link to="/contact" className="package-button">
               Book Now
@@ -450,11 +450,11 @@ const Home = () => {
               <div className="package-duration">Minimum 300 km per day</div>
             </div>
             <ul className="package-features">
-              <li>✓ Force Urbania 16+1 Seater</li>
-              <li>✓ Professional driver</li>
-              <li>✓ Driver allowance included</li>
-              <li>✓ No hidden charges</li>
-              <li>✓ Toll & parking extra</li>
+              <li> Force Urbania 16+1 Seater</li>
+              <li> Professional driver</li>
+              <li> Driver allowance included</li>
+              <li> No hidden charges</li>
+              <li> Toll & parking extra</li>
             </ul>
             <Link to="/contact" className="package-button">
               Book Now
@@ -696,7 +696,7 @@ const Home = () => {
                 ></textarea>
               </div>
 
-              <div className="form-group verification">
+              {/* <div className="form-group verification">
                 <label htmlFor="verification">Verification*</label>
                 <div className="captcha-input">
                   <span className="captcha-text">7 + 2 =</span>
@@ -709,7 +709,7 @@ const Home = () => {
                   />
                 </div>
                 <small>Please solve this simple math problem to verify you're human.</small>
-              </div>
+              </div> */}
 
               <button type="submit" className="submit-button">
                 Book Your Urbania Now →
