@@ -184,12 +184,21 @@
   padding-top: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
-.company-namebird{
-  color:white; 
-  top:-45px;
-  left: 16%;
-  position: relative
+
+.company-namebird {
+  color: white;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: -10px;
+  margin-bottom: 15px;
+  position: relative;
+  left: -9%;
+  
+  top: -22%;
+  display: block;
+  width: 100%;
 }
+
 .footer-bottom-content {
   max-width: 1200px;
   margin: 0 auto;
