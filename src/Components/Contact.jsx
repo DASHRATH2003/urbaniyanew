@@ -63,7 +63,7 @@ const Contact = () => {
             <div className="info-item">
               <FontAwesomeIcon icon={faEnvelope} className="info-icon" />
               <h3>Email</h3>
-              <p>enquiry@urbaniarentalsbangalore.in/</p>
+              <p>enquiry@urbaniarentalsbangalore.in</p>
         
             </div>
 
