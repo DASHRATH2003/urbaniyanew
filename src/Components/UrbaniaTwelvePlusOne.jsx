@@ -6,15 +6,18 @@ import new1 from "../assets/new1.webp";
 import new2 from "../assets/new2.webp";
 import new3 from "../assets/new3.webp";
 import new4 from "../assets/new4.webp";
+import seater1 from "../assets/12seater.jpeg";
+import seater2 from "../assets/12seater1.jpeg";
+import seater3 from "../assets/12seater2.jpeg";
 
 const UrbaniaTwelvePlusOne = () => {
   const [currentImage, setCurrentImage] = useState(0);
-  const images = [new1, new2, new3, new4];
+  const images = [seater1, seater2, seater3, new1, new2, new3, new4];
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 3000);
+    }, 800);
 
     return () => clearInterval(timer);
   }, []);
@@ -212,6 +215,7 @@ const UrbaniaTwelvePlusOne = () => {
                 </ul>
               </div>
               <div className="pricing-column">
+                <h3>What's Excluded:</h3>
                 <ul>
                   <li>
                     <span className="cross">✘</span> Toll charges (to be paid as

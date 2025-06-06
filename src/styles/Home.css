@@ -234,6 +234,56 @@
   }
 }
 
+
+/* About section*/
+.about-section {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+}
+.about-section h1{
+  color: #0056b3;
+}
+.about-heading {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.about-image {
+  flex: 1 1 400px;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.about-content {
+  flex: 1 1 400px;
+}
+
+.about-content p {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+
 /* Services Section */
 .services {
   padding: 80px 20px;
@@ -241,10 +291,10 @@
   text-align: center;
 }
 
-.services h2 {
+.services h1 {
   font-size: 2.5rem;
   margin-bottom: 20px;
-  color: #333;
+  color: darkblue;
 }
 
 .rental-services {
@@ -342,10 +392,10 @@
     background: #f9f9f9;
   }
   
-  .features h2 {
+  .features h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: #222;
+    color: darkblue;
   }
   
   .features > p {
@@ -423,8 +473,8 @@
 }
 
 @media screen and (max-width: 768px) {
-  .services h2,
-  .features h2 {
+  .services h1,
+  .features h1 {
     font-size: 2rem;
   }
 
@@ -442,222 +492,221 @@
     padding: 4rem 2rem;
     text-align: center;
     background-color: #f9f9f9;
-  }
-  
+}
+
+.rental-packages h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: darkblue;
+}
+
+.packages-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.package-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: 100%;
+  max-width: 350px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.package-card.popular {
+  border: 2px solid #ffd700;
+}
+
+.popular-badge {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: #ffd700;
+  color: #333;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.package-header {
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+}
+
+.package-price {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0.5rem 0;
+}
+
+.package-duration {
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.package-features {
+  text-align: left;
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.package-features li {
+  margin-bottom: 0.8rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.package-features li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #51a254;
+}
+
+.package-button {
+  display: inline-block;
+  width: 100%;
+  max-width: 300px;
+  padding: 15px 30px;
+  background-color: #4169E1;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 20px;
+  border: none;
+}
+
+.package-button:hover {
+  background-color: #4169E1;
+  color: white;
+  transform: none;
+  box-shadow: none;
+}
+
+.package-note {
+  margin-top: 2rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
   .packages-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 2rem;
+    flex-direction: column;
+    align-items: center;
   }
   
   .package-card {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    width: 100%;
-    max-width: 350px;
-    position: relative;
-    transition: transform 0.3s ease;
+    max-width: 100%;
   }
-  
-  .package-card.popular {
-    border: 2px solid #ffd700;
-  }
-  
-  .popular-badge {
-    position: absolute;
-    top: -12px;
-    right: 20px;
-    background: #ffd700;
-    color: #333;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-weight: bold;
-    font-size: 0.9rem;
-  }
-  
-  .package-header {
-    margin-bottom: 1.5rem;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 1rem;
-  }
-  
-  .package-price {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #333;
-    margin: 0.5rem 0;
-  }
-  
-  .package-duration {
-    color: #666;
-    margin-bottom: 0.5rem;
-  }
-  
-  .package-features {
-    text-align: left;
-    list-style: none;
-    padding: 0;
-    margin: 1.5rem 0;
-  }
-  
-  .package-features li {
-    margin-bottom: 0.8rem;
-    padding-left: 1.5rem;
-    position: relative;
-  }
-  
-  .package-features li:before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: #51a254;
-  }
-  
-  .package-button {
-    display: inline-block;
-    width: 100%;
-    max-width: 300px;
-    padding: 15px 30px;
-    background-color: #4169E1;
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-align: center;
-    margin-top: 20px;
-    border: none;
-  }
-  
-  .package-button:hover {
-    background-color: #4169E1;
-    color: white;
-    transform: none;
-    box-shadow: none;
-  }
-  
-  .package-note {
-    margin-top: 2rem;
-    color: #666;
-    font-size: 0.9rem;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .packages-container {
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    .package-card {
-      max-width: 100%;
-    }
-  }
+}
 
 /* Customer Reviews Section */
 .reviews-section {
   padding: 60px 20px;
-  background: #f8f9fa;
+  background-color: #f8f9fa;
   overflow: hidden;
 }
 
-.reviews-section h2 {
+.section-header h1 {
   font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #222;
+  margin-bottom: 20px;
+  color: darkblue;
+  text-align: center;
+
 }
 
-.rating-summary {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin: 1rem 0 3rem;
-  padding: 8px 20px;
-  background: #fff3cd;
-  border-radius: 25px;
-  width: fit-content;
-  margin: 1rem auto 3rem;
-}
-
-.rating-summary .stars {
-  color: #ffd700;
-  font-size: 1.2rem;
+.text-center {
+  text-align: center;
 }
 
 .reviews-container {
-  position: relative;
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-  -webkit-overflow-scrolling: touch;
   display: flex;
-  gap: 15px;
-  padding: 20px 0;
+  gap: 30px;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 1200px;
   overflow-x: auto;
+  scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  padding-bottom: 20px; /* Space for scroll */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.reviews-container::-webkit-scrollbar {
+  display: none;
 }
 
 .review-card {
   background: white;
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 25px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  margin: 10px;
-  min-width: 280px;
-  max-width: 280px;
-  height: 250px;
-  display: flex;
-  flex-direction: column;
-  scroll-snap-align: start;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-width: 300px;
+  width: calc(33.33% - 20px);
+  flex: 0 0 auto;
 }
 
 .review-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Custom scrollbar for review text */
-.review-text::-webkit-scrollbar {
-  width: 4px;
+.rating-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
-.review-text::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 2px;
+.rating-summary span {
+  text-align: center;
+  display: block;
+  width: 100%;
 }
 
-.review-text::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 2px;
-}
-
-.review-text::-webkit-scrollbar-thumb:hover {
-  background: #555;
+.stars {
+  color: #ffd700;
+  font-size: 24px;
+  letter-spacing: 2px;
 }
 
 .review-header {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: 15px;
+  margin-bottom: 15px;
 }
 
 .reviewer-avatar {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
   color: white;
-  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .reviewer-info {
@@ -665,8 +714,9 @@
 }
 
 .reviewer-name {
-  font-weight: bold;
-  margin-bottom: 0.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
 }
 
 .review-date {
@@ -674,7 +724,7 @@
   color: #666;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 8px;
 }
 
 .new-badge {
@@ -682,78 +732,33 @@
   color: white;
   padding: 2px 8px;
   border-radius: 12px;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 500;
 }
 
 .review-stars {
   color: #ffd700;
-  margin-bottom: 1rem;
+  margin-bottom: 12px;
+  font-size: 18px;
 }
 
 .review-text {
-  color: #444;
+  color: #555;
   line-height: 1.6;
-  flex-grow: 1;
-  overflow-y: auto;
-  padding-right: 10px;
+  font-size: 0.95rem;
 }
 
-.review-actions {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.action-button {
-  background: none;
-  border: none;
-  color: #666;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0;
-}
-
-.action-button:hover {
-  color: #1a237e;
-}
-
-/* Scroll Navigation Buttons */
-.scroll-nav {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 2rem;
-}
-
-.scroll-button {
-  background: #1a237e;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.scroll-button:hover {
-  background: #283593;
+@media (max-width: 1024px) {
+  .review-card {
+    min-width: 280px;
+    width: calc(50% - 15px);
+  }
 }
 
 @media (max-width: 768px) {
-  .reviews-section {
-    padding: 3rem 1rem;
-  }
-
-  .reviews-section h2 {
-    font-size: 2rem;
-  }
-
   .review-card {
     min-width: 260px;
-    max-width: 260px;
-    height: 230px;
+    width: 85%;
   }
 }
 

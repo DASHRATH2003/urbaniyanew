@@ -14,7 +14,7 @@ const UrbaniaSixteenPlusOne = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 3000);
+    }, 800);
 
     return () => clearInterval(timer);
   }, []);
@@ -217,6 +217,7 @@ const UrbaniaSixteenPlusOne = () => {
                 </ul>
               </div>
               <div className="pricing-column">
+                <h3>What's Excluded:</h3>
                 <ul>
                   <li>
                     <span className="cross">✘</span> Toll charges (to be paid as

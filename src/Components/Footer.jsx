@@ -83,11 +83,17 @@ const Footer = () => {
                 +91 8951666166
               </p>
             </div>
+            <div className="phone-numbers">
+              <p>
+                <i className="fas fa-phone"></i>
+                +91 6366445566
+              </p>
+            </div>
             
             <div className="email-addresses">
               <p>
                 <i className="fas fa-envelope"></i>
-                urbaniarentalsbangalore.in
+                enquiry@urbaniarentalsbangalore.in
               </p>
             </div>
           </div>

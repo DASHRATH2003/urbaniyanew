@@ -18,15 +18,31 @@
 }
 
 .navbar-logo {
-  text-decoration: none;
+  position: relative;
+  display: inline-block;
+}
+
+.company-name {
+  position: absolute;
+  bottom: 65px;
+  left: 90%;
+  transform: translateX(-50%);
+  font-size: 0.9rem;
   color: #333;
-  font-size: 1.5rem;
-  font-weight: bold;
+  text-align: center;
+  font-weight: normal;
+  width: 100%;
+  line-height: 1;
+  /* background-color: rgba(255, 255, 255, 0.9); */
+  color: white;
+  padding: -5px 0;
+  top: 67%;
 }
 
 .navbar-logo img {
   height: 155px;
   width: auto;
+  margin-bottom: -15px;
   border-radius: 5px;
 }
 
@@ -239,7 +255,7 @@
 
 @media screen and (max-width: 960px) {
   .navbar {
-    height: 80px;
+    background: rgba(26, 35, 126, 0.98);
   }
 
   .navbar-logo img {
@@ -309,6 +325,12 @@
   .social-icons {
     display: none;
   }
+
+  .book-now-btn {
+    margin-top: 10px;
+    width: 100%;
+    max-width: 200px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -374,4 +396,21 @@
 .floating-button:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.book-now-btn {
+  background-color: #1a237e;
+  color: white;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.book-now-btn:hover {
+  background-color: #0d47a1;
+  transform: translateY(-2px);
 } 

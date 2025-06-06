@@ -6,25 +6,37 @@ import "../styles/animations.css";
 import { initScrollReveal } from "../utils/scrollReveal";
 
 // Interior seat images for rental cards
-import seatImage1 from "../assets/seet1.webp";
-import seatImage2 from "../assets/seet21.webp";
-import seatImage3 from "../assets/seet3.avif";
+import seatImage1 from "../assets/12seater2.jpeg";
+import seatImage2 from "../assets/12seater8.jpeg";
+import seatImage3 from "../assets/12seater9.jpg";
 import seatImage4 from "../assets/seet44.webp";
 
 // Leading/Hero images
-import heroImage1 from '../assets/leading1.webp';
-import heroImage2 from '../assets/leading2.avif';
-import heroImage3 from '../assets/leading3.jpeg';
-import heroImage4 from '../assets/force.avif';
+import heroImage1 from "../assets/leading1.webp";
+import heroImage2 from "../assets/leading2.avif";
+import heroImage3 from "../assets/leading3.jpeg";
+import heroImage4 from "../assets/force.avif";
 
 // Landing images for additional views
-import landingImage1 from '../assets/landing-1.webp';
-import landingImage2 from '../assets/landing-2.webp';
-import landingImage3 from '../assets/landing-3.webp';
+import landingImage1 from "../assets/landing-1.webp";
+import landingImage2 from "../assets/landing-2.webp";
+import landingImage3 from "../assets/landing-3.webp";
+
+// 12 seater specific images
+import seater1 from "../assets/12seater.jpeg";
+import seater2 from "../assets/12seater1.jpeg";
+import seater3 from "../assets/12seater2.jpeg";
 
 // Define image sets for different vehicle types
 const urbania10Images = [seatImage1, landingImage1, heroImage1, seatImage4];
-const urbania12Images = [seatImage2, landingImage2, heroImage2, seatImage3];
+const urbania12Images = [
+  seater1,
+  seater2,
+  seater3,
+  landingImage2,
+  heroImage2,
+  seatImage3,
+];
 const urbania16Images = [seatImage3, landingImage3, heroImage3, seatImage2];
 
 const rentalServices = [
@@ -78,7 +90,7 @@ const reviews = [
     date: "4 days ago",
     isNew: true,
     text: "Hired a Luxury 9-Seater Traveller for our Dandeli trip—very smooth and comfortable experience!",
-    bgColor: "#c0392b"
+    bgColor: "#c0392b",
   },
   {
     id: 2,
@@ -88,7 +100,7 @@ const reviews = [
     date: "4 days ago",
     isNew: true,
     text: "We hired a 10-seater for our Mysore trip and had a great experience. The vehicle was comfortable and the driver was punctual, polite, and very skilled.",
-    bgColor: "#e74c3c"
+    bgColor: "#e74c3c",
   },
   {
     id: 3,
@@ -98,7 +110,7 @@ const reviews = [
     date: "2 weeks ago",
     isNew: true,
     text: "We had a wonderful trip with Urbania Rentals our trip to ooty was very good driver was also nice",
-    bgColor: "#e84393"
+    bgColor: "#e84393",
   },
   {
     id: 4,
@@ -108,7 +120,7 @@ const reviews = [
     date: "1 week ago",
     isNew: true,
     text: "Outstanding service! The Force Urbania was perfect for our family trip. Very clean and well-maintained vehicle.",
-    bgColor: "#3498db"
+    bgColor: "#3498db",
   },
   {
     id: 5,
@@ -118,7 +130,7 @@ const reviews = [
     date: "3 days ago",
     isNew: true,
     text: "Excellent experience with the 12+1 seater. Driver was very professional and friendly. Will definitely book again!",
-    bgColor: "#9b59b6"
+    bgColor: "#9b59b6",
   },
   {
     id: 6,
@@ -128,7 +140,7 @@ const reviews = [
     date: "1 week ago",
     isNew: true,
     text: "Best rental service in Bangalore! Used their services for a corporate event. Very professional and punctual.",
-    bgColor: "#2ecc71"
+    bgColor: "#2ecc71",
   },
   {
     id: 7,
@@ -138,7 +150,7 @@ const reviews = [
     date: "5 days ago",
     isNew: true,
     text: "Great experience with the Force Urbania. Perfect for our weekend getaway. Driver was very helpful.",
-    bgColor: "#f1c40f"
+    bgColor: "#f1c40f",
   },
   {
     id: 8,
@@ -148,7 +160,7 @@ const reviews = [
     date: "2 days ago",
     isNew: true,
     text: "Booked for a wedding. Vehicle was spacious and comfortable. Service was excellent!",
-    bgColor: "#e67e22"
+    bgColor: "#e67e22",
   },
   {
     id: 9,
@@ -158,7 +170,7 @@ const reviews = [
     date: "6 days ago",
     isNew: true,
     text: "Very satisfied with the service. Clean vehicle, professional driver, and smooth booking process.",
-    bgColor: "#16a085"
+    bgColor: "#16a085",
   },
   {
     id: 10,
@@ -168,8 +180,8 @@ const reviews = [
     date: "1 week ago",
     isNew: true,
     text: "Fantastic experience! Used their service for an office trip. Everything was perfect from start to finish.",
-    bgColor: "#8e44ad"
-  }
+    bgColor: "#8e44ad",
+  },
 ];
 
 const heroImages = [heroImage1, heroImage2, heroImage3, heroImage4];
@@ -184,14 +196,14 @@ const Home = () => {
   const reviewsContainerRef = useRef(null);
 
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    journeyType: 'local',
-    duration: '',
-    service: '',
-    message: '',
-    verification: ''
+    name: "",
+    email: "",
+    phone: "",
+    journeyType: "local",
+    duration: "",
+    service: "",
+    message: "",
+    verification: "",
   });
 
   const [currentHeroImage, setCurrentHeroImage] = useState(0);
@@ -204,25 +216,28 @@ const Home = () => {
       setCurrentHeroImage((prev) => (prev + 1) % heroImages.length);
     }, 2000);
 
-    // Rental cards slideshow every 4 seconds
+    // Rental cards slideshow every 0.8 seconds
     const rentalInterval = setInterval(() => {
       setRentalIndices((prev) =>
-        prev.map((idx) => (idx + 1) % rentalServices.length)
+        prev.map(
+          (idx, serviceIndex) =>
+            (idx + 1) % rentalServices[serviceIndex].images.length
+        )
       );
-    }, 4000);
+    }, 800);
 
     // Auto-scroll reviews
     const scrollInterval = setInterval(() => {
       if (reviewsContainerRef.current) {
         const container = reviewsContainerRef.current;
         const maxScroll = container.scrollWidth - container.clientWidth;
-        
+
         if (scrollPosition >= maxScroll) {
           // Reset to start when reaching the end
           setScrollPosition(0);
           container.scrollTo({
             left: 0,
-            behavior: 'smooth'
+            behavior: "smooth",
           });
         } else {
           // Scroll by 300px each time
@@ -230,7 +245,7 @@ const Home = () => {
           setScrollPosition(newPosition);
           container.scrollTo({
             left: newPosition,
-            behavior: 'smooth'
+            behavior: "smooth",
           });
         }
       }
@@ -247,25 +262,25 @@ const Home = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     // Here you can add your form submission logic
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
     // Reset form
     setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      journeyType: 'local',
-      duration: '',
-      service: '',
-      message: '',
-      verification: ''
+      name: "",
+      email: "",
+      phone: "",
+      journeyType: "local",
+      duration: "",
+      service: "",
+      message: "",
+      verification: "",
     });
   };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -276,35 +291,72 @@ const Home = () => {
         <div className="hero-container">
           <div className="hero-content">
             <h1 className="slide-in">TRAVEL IN COMFORT & STYLE</h1>
-            <h2 className="slide-in">Premium Force Urbania Van Rental in Bangalore</h2>
+            <h2 className="slide-in">
+              Premium Force Urbania Van Rental in Bangalore
+            </h2>
             <p className="slide-in">
-              Experience luxury travel with our Force Urbania vans. Perfect for corporate events, 
-              weddings, group travel, and outstation trips. Book now for a comfortable journey!
+              Experience luxury travel with our Force Urbania vans. Perfect for
+              corporate events, weddings, group travel, and outstation trips.
+              Book now for a comfortable journey!
             </p>
-            <Link to="/contact" className="cta-button pulse">
-              Book Your Ride
-            </Link>
           </div>
           <div className="hero-image reveal">
-            <img 
-              src={heroImages[currentHeroImage]} 
+            <img
+              src={heroImages[currentHeroImage]}
               alt="Force Urbania Van"
-              className="fade-in" 
+              className="fade-in"
             />
             <div className="image-indicators">
               {heroImages.map((_, index) => (
                 <span
                   key={index}
-                  className={`indicator ${index === currentHeroImage ? 'active' : ''}`}
+                  className={`indicator ${
+                    index === currentHeroImage ? "active" : ""
+                  }`}
                 />
               ))}
             </div>
           </div>
         </div>
       </section>
+
+
+      <section class="about-section">
+        {/* <!-- Heading at the top --> */}
+        <h1 class="about-heading">About Us</h1>
+
+        <div class="about-container">
+          {/* <!-- Left side: Image --> */}
+          <div class="about-image">
+            <img src={seatImage2} alt="About Us" />
+          </div>
+
+          {/* <!-- Right side: Content --> */}
+          <div class="about-content">
+            <p>
+              At <strong>Urbania Rentals</strong>, we specialize in providing
+              reliable, comfortable, and premium travel solutions across
+              Bangalore and beyond. Whether you're planning a weekend getaway to
+              Ooty or Coorg or need daily transportation, our fleet is tailored
+              to meet your every need.
+            </p>
+            <p>
+              With a commitment to safety, cleanliness, and punctuality, our
+              professional drivers ensure every ride is a smooth experience. We
+              pride ourselves on building long-term relationships with our
+              clients based on trust and satisfaction.
+            </p>
+            <p>
+              Join hundreds of happy customers who have made us their preferred
+              choice for rentals — experience travel the Urbania way.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Services Section */}
       <section className="services">
-        <h2 className="reveal">Our Rental Services</h2>
+        <h1 className="reveal">Our Rental Services</h1>
         <p className="reveal">
           Choose from our range of vehicles to suit your needs
         </p>
@@ -333,7 +385,13 @@ const Home = () => {
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
                 <Link
-                  to={`/urbania/${service.id === 1 ? '10-1-luxury' : service.id === 2 ? '12-1-seater' : '16-1-seater'}`}
+                  to={`/urbania/${
+                    service.id === 1
+                      ? "10-1-luxury"
+                      : service.id === 2
+                      ? "12-1-seater"
+                      : "16-1-seater"
+                  }`}
                   className="view-details-btn hover-scale"
                 >
                   View Details
@@ -345,7 +403,7 @@ const Home = () => {
       </section>
       {/* Features Section */}
       <section className="features">
-        <h2 className="reveal">Premium Features</h2>
+        <h1 className="reveal">Premium Features</h1>
         <p className="reveal">
           Experience next-level quality with our premium offerings
         </p>
@@ -397,9 +455,10 @@ const Home = () => {
           ))}
         </div>
       </section>
-          
+
+      {/* Rental Packages Section */}
       <section className="rental-packages">
-        <h2 className="reveal">Force Urbania Rental Packages</h2>
+        <h1 className="reveal">Force Urbania Rental Packages</h1>
         <p className="reveal">Transparent pricing with no hidden charges</p>
 
         <div className="packages-container">
@@ -472,36 +531,22 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Customer Reviews Section */}
       <section className="reviews-section">
-        <h2 className="reveal">What Our Customers Say</h2>
-        <div className="rating-summary reveal">
-          <div className="stars">★★★★★</div>
-          <span>5.0 rating based on verified reviews</span>
+        <div className="section-header">
+          <h1 className="reveal">What Our Customers Say</h1>
+          <div className="rating-summary reveal">
+            <div className="stars">★★★★★</div>
+            <span>5.0 rating based on verified reviews</span>
+          </div>
         </div>
 
-        <div 
-          className="reviews-container" 
-          ref={reviewsContainerRef}
-          style={{
-            display: 'flex',
-            overflowX: 'hidden',
-            scrollBehavior: 'smooth',
-            gap: '20px',
-            padding: '20px 0'
-          }}
-        >
+        <div className="reviews-container" ref={reviewsContainerRef}>
           {reviews.map((review) => (
-            <div 
-              key={review.id} 
-              className="review-card reveal hover-scale"
-              style={{
-                minWidth: '300px', // Fixed width for each card
-                flex: '0 0 auto'    // Prevent cards from shrinking
-              }}
-            >
+            <div key={review.id} className="review-card reveal hover-scale">
               <div className="review-header">
-                <div 
-                  className="reviewer-avatar" 
+                <div
+                  className="reviewer-avatar"
                   style={{ background: review.bgColor }}
                 >
                   {review.avatar}
@@ -524,8 +569,10 @@ const Home = () => {
       {/* After reviews section, add contact and map section */}
       <section className="contact-map-section">
         <h2 className="section-title">Contact Us</h2>
-        <p className="section-subtitle">Book your Force Urbania rental or inquire about our services</p>
-        
+        <p className="section-subtitle">
+          Book your Force Urbania rental or inquire about our services
+        </p>
+
         <div className="contact-map-container">
           <div className="location-container reveal">
             <div className="contact-box">
@@ -541,30 +588,37 @@ const Home = () => {
                   referrerPolicy="no-referrer-when-downgrade"
                 />
               </div>
-              
+
               <div className="contact-details">
                 <div className="contact-item">
                   <i className="fas fa-map-marker-alt"></i>
                   <div className="address-info">
                     <p className="address-text">
-                    55th Cross Road, Ramamandira, 3rd Block,<br />
-                    Rajainagar, Bangalore, 560010
+                      55th Cross Road, Ramamandira, 3rd Block,
+                      <br />
+                      Rajainagar, Bangalore, 560010
                     </p>
-                    
                   </div>
                 </div>
-                
+
                 <div className="contact-item">
                   <i className="fas fa-phone-alt"></i>
                   <div className="contact-info">
                     <p>+91 8951666166</p>
                   </div>
                 </div>
+                <div className="contact-item">
+                  <i className="fas fa-phone-alt"></i>
+                  <div className="contact-info">
+                  <p>+91 6366445566 </p>
+                  </div>
+                </div>
+               
 
                 <div className="contact-item">
                   <i className="fas fa-envelope"></i>
                   <div className="contact-info">
-                    <p>bookings@urbaniarentalsbangalore.com</p>
+                    <p>enquiry@urbaniarentalsbangalore.in</p>
                   </div>
                 </div>
               </div>
@@ -634,7 +688,7 @@ const Home = () => {
                         type="radio"
                         name="journeyType"
                         value="local"
-                        checked={formData.journeyType === 'local'}
+                        checked={formData.journeyType === "local"}
                         onChange={handleInputChange}
                       />
                       Local
@@ -644,7 +698,7 @@ const Home = () => {
                         type="radio"
                         name="journeyType"
                         value="outstation"
-                        checked={formData.journeyType === 'outstation'}
+                        checked={formData.journeyType === "outstation"}
                         onChange={handleInputChange}
                       />
                       Outstation
@@ -716,7 +770,9 @@ const Home = () => {
               </button>
 
               <p className="terms-text">
-                By submitting this form, you agree to our <Link to="/">Terms of Service</Link> and <Link to="/">Privacy Policy</Link>
+                By submitting this form, you agree to our{" "}
+                <Link to="/">Terms of Service</Link> and{" "}
+                <Link to="/">Privacy Policy</Link>
               </p>
             </form>
           </div>
@@ -727,5 +783,3 @@ const Home = () => {
 };
 
 export default Home;
-
-

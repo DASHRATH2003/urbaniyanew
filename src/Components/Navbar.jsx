@@ -6,27 +6,41 @@ import logo from '../assets/newimg.png';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const dropdownRef = useRef(null);
+  const [isPremiumDropdownOpen, setIsPremiumDropdownOpen] = useState(false);
+  const [isLuxuryDropdownOpen, setIsLuxuryDropdownOpen] = useState(false);
+  const premiumDropdownRef = useRef(null);
+  const luxuryDropdownRef = useRef(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const toggleDropdown = (e) => {
+  const handleLinkClick = () => {
+    setIsMenuOpen(false);
+    setIsPremiumDropdownOpen(false);
+    setIsLuxuryDropdownOpen(false);
+  };
+
+  const togglePremiumDropdown = (e) => {
     e.preventDefault();
-    setIsDropdownOpen(!isDropdownOpen);
+    setIsPremiumDropdownOpen(!isPremiumDropdownOpen);
+    setIsLuxuryDropdownOpen(false);
   };
 
-  const closeDropdown = () => {
-    setIsDropdownOpen(false);
+  const toggleLuxuryDropdown = (e) => {
+    e.preventDefault();
+    setIsLuxuryDropdownOpen(!isLuxuryDropdownOpen);
+    setIsPremiumDropdownOpen(false);
   };
 
-  // Close dropdown when clicking outside
+  // Close dropdowns when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsDropdownOpen(false);
+      if (premiumDropdownRef.current && !premiumDropdownRef.current.contains(event.target)) {
+        setIsPremiumDropdownOpen(false);
+      }
+      if (luxuryDropdownRef.current && !luxuryDropdownRef.current.contains(event.target)) {
+        setIsLuxuryDropdownOpen(false);
       }
     };
 
@@ -40,8 +54,9 @@ const Navbar = () => {
     <>
       <nav className="navbar">
         <div className="navbar-container">
-          <Link to="/" className="navbar-logo hover-scale">
+          <Link to="/" className="navbar-logo hover-scale" onClick={handleLinkClick}>
             <img src={logo} alt="Dastoor Rentals Logo" />
+            <div className="company-name">Unit of Blue Bird Travels</div>
           </Link>
 
           <div className="menu-icon" onClick={toggleMenu}>
@@ -50,47 +65,50 @@ const Navbar = () => {
 
           <ul className={isMenuOpen ? 'nav-menu active slide-in' : 'nav-menu'}>
             <li className="nav-item fade-in">
-              <Link to="/" className="nav-link hover-scale">Home</Link>
+              <Link to="/" className="nav-link hover-scale" onClick={handleLinkClick}>
+                Home
+              </Link>
             </li>
-            <li className="nav-item dropdown fade-in" ref={dropdownRef}>
-              <a href="#" className="nav-link hover-scale" onClick={toggleDropdown}>
-                Urbania
+            <li className="nav-item dropdown fade-in" ref={premiumDropdownRef}>
+              <a href="#" className="nav-link hover-scale" onClick={togglePremiumDropdown}>
+                Premium Urbania
               </a>
-              <div className={`dropdown-content ${isDropdownOpen ? 'show' : ''}`}>
-                <div className="dropdown-section">
-                  <h4>PREMIUM</h4>
-                  <Link to="/urbania/12-1-seater" className="dropdown-item" onClick={closeDropdown}>12+1 Seater</Link>
-                  <Link to="/urbania/16-1-seater" className="dropdown-item" onClick={closeDropdown}>16+1 Seater</Link>
-                </div>
-                <div className="dropdown-section">
-                  <h4>LUXURY</h4>
-                  <Link to="/urbania/10-1-luxury" className="dropdown-item" onClick={closeDropdown}>10+1 Luxury</Link>
-                  <Link to="/urbania/12-1-luxury" className="dropdown-item" onClick={closeDropdown}>12+1 Luxury</Link>
-                </div>
+              <div className={`dropdown-content ${isPremiumDropdownOpen ? 'show' : ''}`}>
+                <Link to="/urbania/12-1-seater" className="dropdown-item" onClick={handleLinkClick}>
+                  12+1 Seater
+                </Link>
+                <Link to="/urbania/16-1-seater" className="dropdown-item" onClick={handleLinkClick}>
+                  16+1 Seater
+                </Link>
+              </div>
+            </li>
+            <li className="nav-item dropdown fade-in" ref={luxuryDropdownRef}>
+              <a href="#" className="nav-link hover-scale" onClick={toggleLuxuryDropdown}>
+                Luxury Urbania
+              </a>
+              <div className={`dropdown-content ${isLuxuryDropdownOpen ? 'show' : ''}`}>
+                <Link to="/urbania/10-1-luxury" className="dropdown-item" onClick={handleLinkClick}>
+                  10+1 Luxury
+                </Link>
+                <Link to="/urbania/12-1-luxury" className="dropdown-item" onClick={handleLinkClick}>
+                  12+1 Luxury
+                </Link>
               </div>
             </li>
             <li className="nav-item fade-in">
-              <Link to="/blog" className="nav-link hover-scale">Blogs</Link>
+              <Link to="/blog" className="nav-link hover-scale" onClick={handleLinkClick}>
+                Blogs
+              </Link>
             </li>
             <li className="nav-item fade-in">
-              <Link to="/contact" className="nav-link hover-scale">Contact Us</Link>
+              <Link to="/contact" className="nav-link hover-scale" onClick={handleLinkClick}>
+                Contact Us
+              </Link>
+            </li>
+            <li className="nav-item fade-in">
+              <Link to="/contact" className="book-now-btn hover-scale">Book Now</Link>
             </li>
           </ul>
-
-          <div className="social-icons">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon">
-              <i className="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon">
-              <i className="fab fa-instagram"></i>
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-icon">
-              <i className="fab fa-twitter"></i>
-            </a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="social-icon">
-              <i className="fab fa-youtube"></i>
-            </a>
-          </div>
         </div>
       </nav>
 

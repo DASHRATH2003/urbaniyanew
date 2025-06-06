@@ -14,6 +14,13 @@ import ScrollToTop from './Components/ScrollToTop';
 import './styles/App.css';
 
 const App = () => {
+  // Add scroll restoration
+  React.useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+  }, []);
+
   return (
     <Router>
       <ScrollToTop />
