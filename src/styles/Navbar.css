@@ -28,13 +28,11 @@
   left: 90%;
   transform: translateX(-50%);
   font-size: 0.9rem;
-  color: #333;
-  text-align: center;
-  font-weight: normal;
-  width: 100%;
-  line-height: 1;
-  /* background-color: rgba(255, 255, 255, 0.9); */
   color: white;
+  text-align: center;
+  white-space: nowrap;
+  width: auto;
+  line-height: 1;
   padding: -5px 0;
   top: 67%;
 }
@@ -399,18 +397,19 @@
 }
 
 .book-now-btn {
-  background-color: #1a237e;
-  color: white;
+  background-color: darkgoldenrod !important;
+  color: #000 !important;
   padding: 8px 20px;
   border: none;
   border-radius: 5px;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .book-now-btn:hover {
-  background-color: #0d47a1;
+  background-color: #FFD700 !important;
   transform: translateY(-2px);
 } 

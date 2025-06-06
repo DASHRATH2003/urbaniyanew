@@ -5,8 +5,7 @@ import {
   faPhone, 
   faEnvelope, 
   faLocationDot, 
-  faClock,
-  faCalculator
+  faClock
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faFacebook,
@@ -14,13 +13,16 @@ import {
   faYoutube,
   faGoogle
 } from '@fortawesome/free-brands-svg-icons';
+import { Link } from 'react-router-dom';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
     phone: '',
+    email: '',
     journeyType: 'Local',
+    duration: '',
+    service: '',
     message: ''
   });
 
@@ -161,6 +163,35 @@ const Contact = () => {
               </div>
             </div>
 
+            <div className="form-row">
+              <select
+                name="duration"
+                value={formData.duration}
+                onChange={handleChange}
+                className="form-select"
+              >
+                <option value="">Select Duration*</option>
+                <option value="8hrs">8 Hours Package</option>
+                <option value="12hrs">12 Hours Package</option>
+                <option value="24hrs">24 Hours Package</option>
+                <option value="custom">Custom Duration</option>
+              </select>
+
+              <select
+                name="service"
+                value={formData.service}
+                onChange={handleChange}
+                className="form-select"
+              >
+                <option value="">Select Service*</option>
+                <option value="10seater">Force Urbania 10+1 Seater</option>
+                <option value="12seater">Force Urbania 12+1 Seater</option>
+                <option value="16seater">Force Urbania 16+1 Seater</option>
+                <option value="10luxury">Luxury Urbania 10+1 Seater</option>
+                <option value="12luxury">Luxury Urbania 12+1 Seater</option>
+              </select>
+            </div>
+
             <div className="form-group">
               <textarea
                 name="message"
@@ -172,13 +203,24 @@ const Contact = () => {
             </div>
 
             <div className="captcha-group">
-              <div className="captcha">2 + 2 = </div>
-              <input type="text" placeholder="Enter result" />
+              <div className="captcha">2 + 2 =</div>
+              <input 
+                type="text" 
+                className="captcha-input"
+                placeholder="Enter result" 
+                aria-label="Enter captcha result"
+              />
             </div>
 
             <button type="submit" className="submit-button">
               Book Your Urbania Now →
             </button>
+
+            <p className="terms-text">
+              By submitting this form, you agree to our{' '}
+              <Link to="/terms">Terms of Service</Link> and{' '}
+              <Link to="/privacy">Privacy Policy</Link>
+            </p>
           </form>
         </div>
       </div>

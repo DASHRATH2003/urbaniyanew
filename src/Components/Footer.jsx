@@ -11,6 +11,7 @@ const Footer = () => {
         <div className="footer-section">
           <Link to="/" className="footer-logo">
             <img src={logo} alt="Urbania Rentals Logo" />
+            <div className="company-namebird">A Unit of Blue Bird Travels</div>
           </Link>
           <p className="company-description">
             Premium van rental services in Bangalore for corporate events, weddings, and group travel with luxury experience.
