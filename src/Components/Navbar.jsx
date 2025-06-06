@@ -56,7 +56,7 @@ const Navbar = () => {
         <div className="navbar-container">
           <Link to="/" className="navbar-logo hover-scale" onClick={handleLinkClick}>
             <img src={logo} alt="Dastoor Rentals Logo" />
-            <div className="company-name">Unit of Blue Bird Travels</div>
+            <div className="company-name">A Unit of Blue Bird Travels</div>
           </Link>
 
           <div className="menu-icon" onClick={toggleMenu}>
