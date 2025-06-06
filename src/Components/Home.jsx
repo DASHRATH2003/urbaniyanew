@@ -186,6 +186,15 @@ const reviews = [
 
 const heroImages = [heroImage1, heroImage2, heroImage3, heroImage4];
 
+// About section images array
+const aboutImages = [
+  seatImage1,
+  seatImage2, 
+  seatImage3,
+  seatImage4,
+  heroImage3
+];
+
 const Home = () => {
   // Rental card images index state - one per rental card
   const [rentalIndices, setRentalIndices] = useState(
@@ -207,6 +216,7 @@ const Home = () => {
   });
 
   const [currentHeroImage, setCurrentHeroImage] = useState(0);
+  const [currentAboutImage, setCurrentAboutImage] = useState(0);
 
   useEffect(() => {
     const cleanup = initScrollReveal();
@@ -214,6 +224,11 @@ const Home = () => {
     // Hero image slideshow every 2 seconds
     const heroInterval = setInterval(() => {
       setCurrentHeroImage((prev) => (prev + 1) % heroImages.length);
+    }, 2000);
+
+    // About section slideshow every 2 seconds
+    const aboutInterval = setInterval(() => {
+      setCurrentAboutImage((prev) => (prev + 1) % aboutImages.length);
     }, 2000);
 
     // Rental cards slideshow every 0.8 seconds
@@ -233,14 +248,12 @@ const Home = () => {
         const maxScroll = container.scrollWidth - container.clientWidth;
 
         if (scrollPosition >= maxScroll) {
-          // Reset to start when reaching the end
           setScrollPosition(0);
           container.scrollTo({
             left: 0,
             behavior: "smooth",
           });
         } else {
-          // Scroll by 300px each time
           const newPosition = scrollPosition + 300;
           setScrollPosition(newPosition);
           container.scrollTo({
@@ -249,10 +262,11 @@ const Home = () => {
           });
         }
       }
-    }, 3000); // Scroll every 3 seconds
+    }, 3000);
 
     return () => {
       clearInterval(heroInterval);
+      clearInterval(aboutInterval);
       clearInterval(rentalInterval);
       clearInterval(scrollInterval);
       cleanup();
@@ -320,19 +334,28 @@ const Home = () => {
         </div>
       </section>
 
+      <section className="about-section">
+        <h1 className="about-heading">About Us</h1>
 
-      <section class="about-section">
-        {/* <!-- Heading at the top --> */}
-        <h1 class="about-heading">About Us</h1>
-
-        <div class="about-container">
-          {/* <!-- Left side: Image --> */}
-          <div class="about-image">
-            <img src={seatImage2} alt="About Us" />
+        <div className="about-container">
+          <div className="about-image">
+            <img 
+              src={aboutImages[currentAboutImage]} 
+              alt="About Us" 
+              className="fade-in"
+            />
+            <div className="image-indicators">
+              {aboutImages.map((_, index) => (
+                <span
+                  key={index}
+                  className={`indicator ${index === currentAboutImage ? "active" : ""}`}
+                  onClick={() => setCurrentAboutImage(index)}
+                />
+              ))}
+            </div>
           </div>
 
-          {/* <!-- Right side: Content --> */}
-          <div class="about-content">
+          <div className="about-content">
             <p>
               At <strong>Urbania Rentals</strong>, we specialize in providing
               reliable, comfortable, and premium travel solutions across
