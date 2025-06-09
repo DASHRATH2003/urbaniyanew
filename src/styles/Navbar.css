@@ -14,11 +14,12 @@
   height: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 3px;
 }
 
 .navbar-logo {
   position: relative;
+  top: -10%;
   display: inline-block;
 }
 
@@ -329,6 +330,23 @@
     width: 100%;
     max-width: 200px;
   }
+
+  .company-name {
+    position: absolute;
+    left: 50%;
+    /* top: -20%; */
+    transform: translateX(-50%);
+    bottom: -5px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    width: auto;
+    text-align: center;
+    top: auto;
+  }
+
+  .navbar-logo {
+    position: relative;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -338,6 +356,27 @@
 
   .navbar-logo img {
     height: 100px;
+  }
+
+  .floating-contact-buttons {
+    right: 20px;
+  }
+
+  .floating-button {
+    width: 45px;
+    height: 45px;
+  }
+
+  .floating-button i {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .company-name {
+    font-size: 0.85rem;
+    bottom: 12px;
+    left: 112px;
   }
 
   .floating-contact-buttons {
@@ -397,8 +436,8 @@
 }
 
 .book-now-btn {
-  background-color: 4169!important;
-  color: #ffff !important;
+  background-color: #4169E1 !important;
+  color: #ffffff !important;
   padding: 8px 20px;
   border: none;
   border-radius: 5px;
@@ -410,6 +449,6 @@
 }
 
 .book-now-btn:hover {
-  background-color: #FFD700 !important;
+  background-color: #333 !important;
   transform: translateY(-2px);
 } 

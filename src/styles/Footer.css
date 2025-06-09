@@ -191,13 +191,37 @@
   font-size: 0.9rem;
   margin-top: -10px;
   margin-bottom: 15px;
+  
   position: relative;
   left: -9%;
-  
   top: -22%;
   display: block;
   width: 100%;
 }
+@media screen and (max-width: 768px) {
+  .company-namebird {
+    font-size: 0.85rem;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    position: relative;
+    left: 0;
+    top: 0;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .company-namebird {
+    font-size: 0.87rem;
+    margin-top: -20px;
+    margin-bottom: 8px;
+    position: relative;
+    left: 69px;
+    top: 0;
+  }
+}
+  
+
 
 .footer-bottom-content {
   max-width: 1200px;
