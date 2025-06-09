@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Navbar.css';
 import '../styles/animations.css';
 import logo from '../assets/newimg.png';
@@ -10,6 +10,7 @@ const Navbar = () => {
   const [isLuxuryDropdownOpen, setIsLuxuryDropdownOpen] = useState(false);
   const premiumDropdownRef = useRef(null);
   const luxuryDropdownRef = useRef(null);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -31,6 +32,11 @@ const Navbar = () => {
     e.preventDefault();
     setIsLuxuryDropdownOpen(!isLuxuryDropdownOpen);
     setIsPremiumDropdownOpen(false);
+  };
+
+  const handleBookNowClick = () => {
+    navigate('/contact');
+    setIsMenuOpen(false);
   };
 
   // Close dropdowns when clicking outside
@@ -106,7 +112,12 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item fade-in">
-              <Link to="/contact" className="book-now-btn hover-scale">Book Now</Link>
+              <button 
+                className='book-now-btn'
+                onClick={handleBookNowClick}
+              >
+                Book Now
+              </button>
             </li>
           </ul>
         </div>

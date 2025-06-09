@@ -201,8 +201,9 @@
 
 .menu-icon {
   display: none;
+  color: #ffffff;
+  font-size: 1.8rem;
   cursor: pointer;
-  font-size: 1.5rem;
 }
 
 /* Social Icons */
@@ -254,7 +255,14 @@
 
 @media screen and (max-width: 960px) {
   .navbar {
-    background: rgba(26, 35, 126, 0.98);
+    background-color: #1a237e;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 999;
   }
 
   .navbar-logo img {
@@ -263,30 +271,75 @@
 
   .menu-icon {
     display: block;
-    position: relative;
-    z-index: 1000;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 99;
+  }
+
+  .menu-icon i {
+    color: #ffffff;
+  }
+
+  .fa-bars {
+    color: #ffffff;
+  }
+
+  .fa-times {
+    color: #ffffff;
   }
 
   .nav-menu {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(26, 35, 126, 0.98);
-    padding: 80px 0 20px;
+    background-color: #1a237e;
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    z-index: 999;
+    width: 100%;
+    height: calc(100vh - 70px); /* Subtract navbar height */
+    position: fixed;
+    top: 70px; /* Exactly navbar height */
+    left: -100%;
+    transition: all 0.3s ease;
+    margin: 0;
+    padding: 0;
   }
 
   .nav-menu.active {
-    display: flex;
+    background-color: #1a237e;
+    left: 0;
+    opacity: 1;
+    transition: all 0.3s ease;
+    z-index: 998;
+    margin: 0;
+    padding: 0;
   }
 
   .nav-item {
-    margin: 15px 0;
+    margin: 0;
+    padding: 0.8rem;
+    border: none;
+  }
+
+  .nav-links {
+    margin: 0;
+    padding: 0.5rem;
+    color: white;
+  }
+
+  .nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-item .book-now-btn {
+    background-color: white !important;
+    color: #1a237e !important;
+    margin: 10px auto !important;
+    padding: 10px 25px !important;
+  }
+
+  .nav-item .book-now-btn:hover {
+    background-color: #f8f9fa !important;
+    transform: translateY(-2px);
   }
 
   .nav-link {
@@ -295,10 +348,19 @@
   }
 
   .dropdown-content {
-    position: static;
-    background: transparent;
+    position: relative;
+    top: 0;
+    background-color: #1a237e;
+    width: 100%;
+    margin: 0;
+    padding: 0;
     box-shadow: none;
-    padding: 10px 0;
+  }
+
+  .dropdown-content a {
+    color: white;
+    padding: 0.5rem;
+    margin: 0;
   }
 
   .dropdown-section {
@@ -334,7 +396,6 @@
   .company-name {
     position: absolute;
     left: 50%;
-    /* top: -20%; */
     transform: translateX(-50%);
     bottom: -5px;
     font-size: 0.9rem;
@@ -346,6 +407,54 @@
 
   .navbar-logo {
     position: relative;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Floating buttons styling */
+  .floating-contact-buttons {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+  }
+
+  .floating-button {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .phone-button {
+    background-color: #1a237e;
+  }
+
+  .whatsapp-button {
+    background-color: #25D366;
+  }
+
+  /* Additional fix for dropdown arrows */
+  .nav-links .fa-caret-down {
+    color: white;
+  }
+
+  /* Ensure content below navbar is properly positioned */
+  .main-content {
+    margin-top: 70px;
+  }
+
+  /* Fix any potential body/html gaps */
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
   }
 }
 
@@ -390,6 +499,14 @@
 
   .floating-button i {
     font-size: 18px;
+  }
+
+  .nav-menu.active {
+    padding-top: 5px;
+  }
+
+  .nav-item {
+    padding: 0.6rem;
   }
 }
 
