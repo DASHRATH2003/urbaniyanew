@@ -191,37 +191,36 @@
   font-size: 0.9rem;
   margin-top: -10px;
   margin-bottom: 15px;
-  
   position: relative;
   left: -9%;
-  top: -22%;
+  top: -35px;
   display: block;
   width: 100%;
 }
+
 @media screen and (max-width: 768px) {
   .company-namebird {
     font-size: 0.85rem;
-    margin-top: 5px;
-    margin-bottom: 10px;
+    margin-top: -25px;
+    margin-bottom: 20px;
     position: relative;
     left: 0;
-    top: 0;
-    text-align: center;
+    top: -10px;
+    text-align: left;
   }
 }
 
 @media screen and (max-width: 480px) {
   .company-namebird {
     font-size: 0.87rem;
-    margin-top: -20px;
-    margin-bottom: 8px;
+    margin-top: -30px;
+    margin-bottom: 39px;
     position: relative;
-    left: 69px;
-    top: 0;
+    left: 0;
+    top: -15px;
+    text-align: left;
   }
 }
-  
-
 
 .footer-bottom-content {
   max-width: 1200px;
@@ -272,34 +271,36 @@
   }
 
   .footer-section {
-    text-align: center;
-    align-items: center;
+    text-align: left;
+    align-items: flex-start;
   }
 
   .footer-section h3 {
     font-size: 1.2rem;
     margin-bottom: 20px;
+    text-align: left;
   }
 
   .footer-section h3::after {
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    transform: none;
     width: 30px;
   }
 
   .company-description {
-    text-align: center;
+    text-align: left;
     margin-top: 0;
-    padding: 0 20px;
+    padding: 0;
   }
 
   .social-links {
-    justify-content: center;
+    justify-content: flex-start;
     margin-top: 20px;
   }
 
   .footer-section ul {
-    text-align: center;
+    text-align: left;
+    width: 100%;
   }
 
   .footer-section ul li {
@@ -307,16 +308,34 @@
   }
 
   .footer-section ul li a {
-    justify-content: center;
+    justify-content: flex-start;
     font-size: 0.95rem;
   }
 
   .footer-logo {
-    margin: 0 auto 20px;
+    margin: 0 0 20px 0;
+    text-align: left;
   }
 
-  .footer-logo img {
-    height: 100px;
+  .contact-info {
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .contact-info .address p,
+  .contact-info .phone-numbers p,
+  .contact-info .email-addresses p {
+    text-align: left;
+    justify-content: flex-start;
+  }
+
+  .company-namebird {
+    text-align: left;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    position: relative;
+    left: 0;
+    top: 0;
   }
 }
 

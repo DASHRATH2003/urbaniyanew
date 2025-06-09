@@ -71,11 +71,9 @@ const Contact = () => {
 
             <div className="info-item">
               <FontAwesomeIcon icon={faLocationDot} className="info-icon" />
-              <h3>Office Address</h3>
-              <p>55th Cross Road ,</p>
-              <p>Ramamandira , 3rd Block ,</p>
-              <p>Rajainagar , Bangalore,</p>
-              <p>BBangalore, 560010</p>
+              <h3>Office Address  </h3>
+              <p>55th Cross Road ,Ramamandira 3rd Block,Rajainagar , BangaloreB, 560010 ,</p>
+             
             </div>
 
             <div className="info-item">
