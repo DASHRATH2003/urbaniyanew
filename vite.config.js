@@ -14,14 +14,21 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
       },
-      external: [
-        'react',
-        'react-dom',
-        'react-router-dom',
-        '@fortawesome/fontawesome-svg-core',
-        '@fortawesome/react-fontawesome',
-        // Add any other peer dependencies here
-      ],
+      output: {
+        manualChunks: (id) => {
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router')) {
+              return 'vendor';
+            }
+            if (id.includes('@fortawesome')) {
+              return 'icons';
+            }
+            if (id.includes('@emailjs')) {
+              return 'email';
+            }
+          }
+        }
+      }
     },
     chunkSizeWarningLimit: 1000,
     sourcemap: true,
@@ -29,33 +36,18 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': resolve(__dirname, './src'),
-      // Add other aliases if needed
-    },
+    }
   },
   optimizeDeps: {
     include: [
       'react',
       'react-dom',
       'react-router-dom',
+      '@emailjs/browser',
       '@fortawesome/fontawesome-svg-core',
       '@fortawesome/free-brands-svg-icons',
       '@fortawesome/free-solid-svg-icons',
       '@fortawesome/react-fontawesome',
-      // Add other heavy dependencies that should be pre-bundled
-    ],
-    exclude: [
-      // Exclude dependencies that should not be pre-bundled
-    ],
-  },
-  // Add if using SSR
-  ssr: {
-    external: [
-      'react',
-      'react-dom',
-      // Add other SSR externals
-    ],
-    noExternal: [
-      // Packages that should be bundled for SSR
-    ],
-  },
+    ]
+  }
 });
