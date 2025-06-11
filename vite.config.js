@@ -13,17 +13,6 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html')
-      },
-      output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-          icons: [
-            '@fortawesome/fontawesome-svg-core',
-            '@fortawesome/free-brands-svg-icons',
-            '@fortawesome/free-solid-svg-icons',
-            '@fortawesome/react-fontawesome'
-          ]
-        }
       }
     },
     chunkSizeWarningLimit: 1000,
