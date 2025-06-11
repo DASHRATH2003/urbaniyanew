@@ -568,4 +568,31 @@
 .book-now-btn:hover {
   background-color: #333 !important;
   transform: translateY(-2px);
+}
+
+.nav-menu .nav-item .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  z-index: 1;
+  border-radius: 4px;
+}
+
+.nav-menu .nav-item .dropdown-content.show {
+  display: block;
+}
+
+.nav-menu .nav-item .dropdown-content .dropdown-item {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.nav-menu .nav-item .dropdown-content .dropdown-item:hover {
+  background-color: #f8f9fa;
+  color: #1a237e;
 } 

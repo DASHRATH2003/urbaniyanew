@@ -11,6 +11,8 @@ import UrbaniaLuxuryTwelvePlusOne from './Components/UrbaniaLuxuryTwelvePlusOne'
 import Blog from './Components/Blog';
 import Contact from './Components/Contact';
 import ScrollToTop from './Components/ScrollToTop';
+import BusTwentyOnePlusOne from './Components/BusTwentyOnePlusOne';
+import BusTwentyFivePlusOne from './Components/BusTwentyFivePlusOne';
 import './styles/App.css';
 
 const App = () => {
@@ -36,6 +38,8 @@ const App = () => {
             <Route path="/urbania/12-1-luxury" element={<UrbaniaLuxuryTwelvePlusOne />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/bus/21-1-seater" element={<BusTwentyOnePlusOne />} />
+            <Route path="/bus/25-1-seater" element={<BusTwentyFivePlusOne />} />
           </Routes>
         </main>
         <Footer />

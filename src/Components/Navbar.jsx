@@ -8,8 +8,10 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isPremiumDropdownOpen, setIsPremiumDropdownOpen] = useState(false);
   const [isLuxuryDropdownOpen, setIsLuxuryDropdownOpen] = useState(false);
+  const [isBusDropdownOpen, setIsBusDropdownOpen] = useState(false);
   const premiumDropdownRef = useRef(null);
   const luxuryDropdownRef = useRef(null);
+  const busDropdownRef = useRef(null);
   const navigate = useNavigate();
 
   const toggleMenu = () => {
@@ -20,18 +22,28 @@ const Navbar = () => {
     setIsMenuOpen(false);
     setIsPremiumDropdownOpen(false);
     setIsLuxuryDropdownOpen(false);
+    setIsBusDropdownOpen(false);
   };
 
   const togglePremiumDropdown = (e) => {
     e.preventDefault();
     setIsPremiumDropdownOpen(!isPremiumDropdownOpen);
     setIsLuxuryDropdownOpen(false);
+    setIsBusDropdownOpen(false);
   };
 
   const toggleLuxuryDropdown = (e) => {
     e.preventDefault();
     setIsLuxuryDropdownOpen(!isLuxuryDropdownOpen);
     setIsPremiumDropdownOpen(false);
+    setIsBusDropdownOpen(false);
+  };
+
+  const toggleBusDropdown = (e) => {
+    e.preventDefault();
+    setIsBusDropdownOpen(!isBusDropdownOpen);
+    setIsPremiumDropdownOpen(false);
+    setIsLuxuryDropdownOpen(false);
   };
 
   const handleBookNowClick = () => {
@@ -47,6 +59,9 @@ const Navbar = () => {
       }
       if (luxuryDropdownRef.current && !luxuryDropdownRef.current.contains(event.target)) {
         setIsLuxuryDropdownOpen(false);
+      }
+      if (busDropdownRef.current && !busDropdownRef.current.contains(event.target)) {
+        setIsBusDropdownOpen(false);
       }
     };
 
@@ -98,6 +113,19 @@ const Navbar = () => {
                 </Link>
                 <Link to="/urbania/12-1-luxury" className="dropdown-item" onClick={handleLinkClick}>
                   12+1 Luxury
+                </Link>
+              </div>
+            </li>
+            <li className="nav-item dropdown fade-in" ref={busDropdownRef}>
+              <a href="#" className="nav-link hover-scale" onClick={toggleBusDropdown}>
+                Bus
+              </a>
+              <div className={`dropdown-content ${isBusDropdownOpen ? 'show' : ''}`}>
+                <Link to="/bus/21-1-seater" className="dropdown-item" onClick={handleLinkClick}>
+                  21+1 Seater
+                </Link>
+                <Link to="/bus/25-1-seater" className="dropdown-item" onClick={handleLinkClick}>
+                  25+1 Seater
                 </Link>
               </div>
             </li>
