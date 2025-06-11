@@ -13,21 +13,6 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-      },
-      output: {
-        manualChunks: (id) => {
-          if (id.includes('node_modules')) {
-            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router')) {
-              return 'vendor';
-            }
-            if (id.includes('@fortawesome')) {
-              return 'icons';
-            }
-            if (id.includes('@emailjs')) {
-              return 'email';
-            }
-          }
-        }
       }
     },
     chunkSizeWarningLimit: 1000,
@@ -37,6 +22,11 @@ export default defineConfig({
     alias: {
       '@': resolve(__dirname, './src'),
     }
+  },
+  define: {
+    'import.meta.env.VITE_EMAILJS_SERVICE_ID': JSON.stringify('service_8vmnfsl'),
+    'import.meta.env.VITE_EMAILJS_TEMPLATE_ID': JSON.stringify('template_nthjbpl'),
+    'import.meta.env.VITE_EMAILJS_PUBLIC_KEY': JSON.stringify('PBRoImwpZQqiQ48Ky')
   },
   optimizeDeps: {
     include: [
@@ -49,5 +39,10 @@ export default defineConfig({
       '@fortawesome/free-solid-svg-icons',
       '@fortawesome/react-fontawesome',
     ]
+  },
+  server: {
+    fs: {
+      strict: false
+    }
   }
 });

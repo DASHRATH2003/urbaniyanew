@@ -45,12 +45,12 @@ const Contact = () => {
     setSubmitStatus({ type: '', message: '' });
 
     emailjs.sendForm(
-      'service_8vmnfsl', // Replace with your EmailJS service ID
-      'template_nthjbpl', // Replace with your EmailJS template ID
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
       form.current,
-      'PBRoImwpZQqiQ48Ky' // Replace with your EmailJS public key
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
     )
-      .then((result) => {
+      .then(() => {
         setSubmitStatus({
           type: 'success',
           message: 'Thank you! Your message has been sent successfully.'
@@ -66,7 +66,7 @@ const Contact = () => {
           message: ''
         });
       })
-      .catch((error) => {
+      .catch(() => {
         setSubmitStatus({
           type: 'error',
           message: 'Oops! Something went wrong. Please try again later.'
