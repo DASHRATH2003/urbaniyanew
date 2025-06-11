@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../styles/UrbaniaTwelvePlusOne.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import new1 from "../assets/new1.webp";
-import new2 from "../assets/new2.webp";
-import new3 from "../assets/new3.webp";
-import new4 from "../assets/new4.webp";
-import seater1 from "../assets/12seater.jpeg";
-import seater2 from "../assets/12seater1.jpeg";
-import seater3 from "../assets/12seater2.jpeg";
+import new1 from "../assets/21seater.jpeg";
+import new2 from "../assets/21seater1.jpeg";
+import new3 from "../assets/21seater2.jpeg";
+import new4 from "../assets/21seater3.jpeg";
+import seater1 from "../assets/21seater4.jpeg";
+import seater2 from "../assets/21seater1.jpeg";
+import seater3 from "../assets/21seater2.jpeg";
 
 const BusTwentyOnePlusOne = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -34,7 +34,7 @@ const BusTwentyOnePlusOne = () => {
     <div className="urbania-detail">
       <div className="urbania-detail-container">
         <header className="detail-header">
-          <h1>Force Bus 21+1 Seater Luxury Bus Rental</h1>
+          <h1> Volvo 21+1 Seater AC Mini Coach Bus</h1>
           <p>
             Experience premium comfort with our brand new 2025 model Force
             21+1 seater luxury bus. Perfect for large groups, corporate events,
@@ -50,24 +50,35 @@ const BusTwentyOnePlusOne = () => {
                 <tbody>
                   <tr>
                     <td>8hrs 80Kms</td>
-                    <td>₹6,500</td>
+                    <td>₹5,999</td>
                   </tr>
                   <tr>
-                    <td>Extra Hr</td>
-                    <td>₹400</td>
+                    <td>12 hrs 100kms</td>
+                    <td>₹8,299</td>
                   </tr>
                   <tr>
-                    <td>per  Kms</td>
-                    <td>₹29</td>
-                  </tr>
+                    <td>Out station / kms</td>
+                    <td>₹38</td>
+                 </tr>
+                 
+                 
                   <tr>
                     <td>Driver Bata</td>
                     <td>₹600</td>
                   </tr>
-                  
                   <tr>
-                    <td>Extra Per Driver</td>
+                    <td>After hrs Driver Bata</td>
                     <td>₹600</td>
+                  </tr>
+                  
+                 
+                  <tr>
+                    <td>Extra Per  Kms</td>
+                    <td>₹38</td>
+                  </tr>
+                  <tr>
+                    <td> Extra Per Hour</td>
+                    <td>₹300</td>
                   </tr>
                  
                 </tbody>

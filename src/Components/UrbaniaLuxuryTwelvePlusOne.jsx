@@ -59,23 +59,23 @@ const UrbaniaLuxuryTwelvePlusOne = () => {
                     <td>12hrs 100Kms</td>
                     <td>₹13,000</td>
                   </tr>
-                  <tr className="highlight">
+                  <tr >
                     <td>Out Station / Kms</td>
                     <td>₹55</td>
                   </tr>
-                  <tr className="highlight">
+                  <tr>
                     <td>Driver Bata</td>
                     <td>₹1,200</td>
                   </tr>
-                  <tr className="highlight">
+                  <tr>
                     <td>After Hrs Driver Bata</td>
                     <td>₹1,200</td>
                   </tr>
-                  <tr className="highlight">
+                  <tr>
                     <td>Extra Per Kms</td>
                     <td>₹55</td>
                   </tr>
-                  <tr className="highlight">
+                  <tr>
                     <td>Extra Per Hours</td>
                     <td>₹550</td>
                   </tr>

@@ -14,7 +14,7 @@ const Footer = () => {
             <div className="company-namebird">A Unit of Blue Bird Travels</div>
           </Link>
           <p className="company-description">
-            Premium van rental services in Bangalore for corporate events, weddings, and group travel with luxury experience.
+            Premium van and bus rental services in Bangalore for corporate events, weddings, and group travel with luxury experience.
           </p>
           <div className="social-links">
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
@@ -37,13 +37,19 @@ const Footer = () => {
           <h3>Our Services</h3>
           <ul>
             <li>
-              <Link to="/urbania/10-1-seater">Force Urbania 10+1</Link>
+              <Link to="/urbania/10-1-luxury">Force Urbania 10+1</Link>
             </li>
             <li>
               <Link to="/urbania/12-1-seater">Force Urbania 12+1</Link>
             </li>
             <li>
-              <Link to="/urbania/17-1-seater">Force Urbania 17+1</Link>
+              <Link to="/urbania/16-1-seater">Force Urbania 16+1</Link>
+            </li>
+            <li>
+              <Link to="/bus/21-1-seater">21+1 Seater AC Mini Coach</Link>
+            </li>
+            <li>
+              <Link to="/bus/25-1-seater">25+1 Seater AC Mini Coach</Link>
             </li>
           </ul>
         </div>

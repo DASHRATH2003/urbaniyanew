@@ -122,10 +122,10 @@ const Navbar = () => {
               </a>
               <div className={`dropdown-content ${isBusDropdownOpen ? 'show' : ''}`}>
                 <Link to="/bus/21-1-seater" className="dropdown-item" onClick={handleLinkClick}>
-                  21+1 Seater
+                  21+1 Seater AC Mini Coach
                 </Link>
                 <Link to="/bus/25-1-seater" className="dropdown-item" onClick={handleLinkClick}>
-                  25+1 Seater
+                  25+1 Seater AC Mini Coach
                 </Link>
               </div>
             </li>
