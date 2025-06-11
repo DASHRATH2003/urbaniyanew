@@ -1370,4 +1370,70 @@
   .contact-item i.fa-phone-alt {
     margin-right: 15px;
   }
+}
+
+.submit-status {
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.submit-status.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.submit-status.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #1a237e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #283593;
+}
+
+.submit-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.terms-privacy {
+  margin: 15px 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.terms-privacy a {
+  color: #1a237e;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.terms-privacy a:hover {
+  color: #283593;
+  text-decoration: underline;
+}
+
+.terms-link,
+.privacy-link {
+  display: inline-block;
 } 

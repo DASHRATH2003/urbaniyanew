@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import '../styles/Contact.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
@@ -14,8 +14,13 @@ import {
   faGoogle
 } from '@fortawesome/free-brands-svg-icons';
 import { Link } from 'react-router-dom';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
+  const form = useRef();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
+
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -36,7 +41,40 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    setSubmitStatus({ type: '', message: '' });
+
+    emailjs.sendForm(
+      'service_8vmnfsl', // Replace with your EmailJS service ID
+      'template_nthjbpl', // Replace with your EmailJS template ID
+      form.current,
+      'PBRoImwpZQqiQ48Ky' // Replace with your EmailJS public key
+    )
+      .then((result) => {
+        setSubmitStatus({
+          type: 'success',
+          message: 'Thank you! Your message has been sent successfully.'
+        });
+        // Clear form
+        setFormData({
+          name: '',
+          phone: '',
+          email: '',
+          journeyType: 'Local',
+          duration: '',
+          service: '',
+          message: ''
+        });
+      })
+      .catch((error) => {
+        setSubmitStatus({
+          type: 'error',
+          message: 'Oops! Something went wrong. Please try again later.'
+        });
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
   };
 
   return (
@@ -106,7 +144,7 @@ const Contact = () => {
 
         <div className="book-ride">
           <h2>Book Your Ride</h2>
-          <form onSubmit={handleSubmit} className="booking-form">
+          <form ref={form} onSubmit={handleSubmit} className="booking-form">
             <div className="form-group">
               <input
                 type="text"
@@ -137,88 +175,78 @@ const Contact = () => {
             </div>
 
             <div className="form-row">
-              <div className="radio-group">
-                <label>
-                  <input
-                    type="radio"
-                    name="journeyType"
-                    value="Local"
-                    checked={formData.journeyType === 'Local'}
-                    onChange={handleChange}
-                  />
-                  <span>Local</span>
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="journeyType"
-                    value="Outstation"
-                    checked={formData.journeyType === 'Outstation'}
-                    onChange={handleChange}
-                  />
-                  <span>Outstation</span>
-                </label>
-              </div>
-            </div>
+              <select
+                name="journeyType"
+                value={formData.journeyType}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Select Journey Type*</option>
+                <option value="Local">Local</option>
+                <option value="Outstation">Outstation</option>
+              </select>
 
-            <div className="form-row">
               <select
                 name="duration"
                 value={formData.duration}
                 onChange={handleChange}
-                className="form-select"
+                required
               >
                 <option value="">Select Duration*</option>
                 <option value="8hrs">8 Hours Package</option>
                 <option value="12hrs">12 Hours Package</option>
-                <option value="24hrs">24 Hours Package</option>
                 <option value="custom">Custom Duration</option>
               </select>
+            </div>
 
+            <div className="form-group">
               <select
                 name="service"
                 value={formData.service}
                 onChange={handleChange}
-                className="form-select"
+                required
               >
-                <option value="">Select Service*</option>
-                <option value="10seater">Force Urbania 10+1 Seater</option>
-                <option value="12seater">Force Urbania 12+1 Seater</option>
-                <option value="16seater">Force Urbania 16+1 Seater</option>
-                <option value="10luxury">Luxury Urbania 10+1 Seater</option>
-                <option value="12luxury">Luxury Urbania 12+1 Seater</option>
+                <option value="">Select Vehicle*</option>
+                <option value="10+1">Force Urbania 10+1 Seater</option>
+                <option value="12+1">Force Urbania 12+1 Seater</option>
+                <option value="16+1">Force Urbania 16+1 Seater</option>
+                <option value="21+1">21+1 Seater AC Mini Coach</option>
+                <option value="25+1">25+1 Seater AC Mini Coach</option>
               </select>
             </div>
 
             <div className="form-group">
               <textarea
                 name="message"
-                placeholder="Message"
+                placeholder="Additional Message"
                 value={formData.message}
                 onChange={handleChange}
                 rows="4"
               ></textarea>
             </div>
 
-            <div className="captcha-group">
-              <div className="captcha">2 + 2 =</div>
-              <input 
-                type="text" 
-                className="captcha-input"
-                placeholder="Enter result" 
-                aria-label="Enter captcha result"
-              />
+            <div className="terms-privacy">
+              <p>
+                By submitting this form, you agree to our{' '}
+                <Link to="/terms" className="terms-link">Terms of Service</Link>{' '}
+                and{' '}
+                <Link to="/privacy" className="privacy-link">Privacy Policy</Link>
+              </p>
             </div>
 
-            <button type="submit" className="submit-button">
-              Book Your Urbania Now →
-            </button>
+            {submitStatus.message && (
+              <div className={`submit-status ${submitStatus.type}`}>
+                {submitStatus.message}
+              </div>
+            )}
 
-            <p className="terms-text">
-              By submitting this form, you agree to our{' '}
-              <Link to="/terms">Terms of Service</Link> and{' '}
-              <Link to="/privacy">Privacy Policy</Link>
-            </p>
+            <button 
+              type="submit" 
+              className="submit-btn"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Sending...' : 'Send Message'}
+            </button>
           </form>
         </div>
       </div>

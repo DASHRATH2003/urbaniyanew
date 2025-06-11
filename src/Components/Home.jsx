@@ -773,20 +773,7 @@ const Home = () => {
                 ></textarea>
               </div>
 
-              {/* <div className="form-group verification">
-                <label htmlFor="verification">Verification*</label>
-                <div className="captcha-input">
-                  <span className="captcha-text">7 + 2 =</span>
-                  <input
-                    type="text"
-                    id="verification"
-                    name="verification"
-                    required
-                    placeholder="Enter result"
-                  />
-                </div>
-                <small>Please solve this simple math problem to verify you're human.</small>
-              </div> */}
+           
 
               <button type="submit" className="submit-button">
                 Book Your Urbania Now →
